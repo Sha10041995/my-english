@@ -1,0 +1,78 @@
+@import "tailwindcss";
+
+/* Design tokens */
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --color-canvas: #f7f5f0;
+  --color-surface: #ffffff;
+  --color-ink: #1b2236;
+  --color-muted: #56607a;
+  --color-line: #e5e1d8;
+  --color-brand: #3f4ee0;
+  --color-brand-strong: #2d3bc4;
+  --color-brand-soft: #eceefe;
+  --color-sun: #f2a93b;
+  --color-sun-soft: #fdf1da;
+  --color-leaf: #1f8a5b;
+  --color-leaf-soft: #e1f5ea;
+  --color-berry: #c2410c;
+  --color-berry-soft: #ffedd9;
+  --color-night: #141b30;
+  --radius-card: 1.25rem;
+}
+
+html {
+  color-scheme: light;
+}
+
+body {
+  background: var(--color-canvas);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+:focus-visible {
+  outline: 3px solid var(--color-brand);
+  outline-offset: 2px;
+  border-radius: 0.5rem;
+}
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  background: var(--color-brand);
+  color: #fff;
+  padding: 0.75rem 1rem;
+  z-index: 100;
+}
+.skip-link:focus {
+  left: 0.5rem;
+  top: 0.5rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@keyframes pop-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.pop-in {
+  animation: pop-in 0.25s ease-out;
+}
